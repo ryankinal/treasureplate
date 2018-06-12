@@ -239,6 +239,10 @@ header nav .selected a::before {
 	color: #BBB;
 }
 
+.email {
+	text-align: center;
+}
+
 .contact-icon-email::before {
 	content: '@';
 	position: relative;
