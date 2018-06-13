@@ -35,7 +35,7 @@ header .background {
 
 header .lines {
 	border: solid #F6840A;
-	border-width: 5px 0;
+	border-width: 4px 0;
 	height: 25px;
 	background-color: #000;
 	position: relative;
@@ -60,7 +60,7 @@ header .lines::after {
 	display: block;
 	position: absolute;
 	left: 50%;
-	top: -22px;
+	top: -21px;
 	transform: translateX(-50%);
 	width: 0;
 	border: solid 17px #000;
@@ -315,6 +315,16 @@ header nav .selected a::before {
 
 .shows {
 	text-align: center;
+}
+
+.shows .posters {
+	background-color: #000;
+	display: inline-block;
+}
+
+.shows img {
+	width: 350px;
+	vertical-align: middle;
 }
 
 .show {
