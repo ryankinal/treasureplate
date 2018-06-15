@@ -322,6 +322,11 @@ header nav .selected a::before {
 	display: inline-block;
 }
 
+.shows .posters a {
+	outline: none;
+	text-decoration: none;
+}
+
 .shows img {
 	width: 350px;
 	vertical-align: middle;
