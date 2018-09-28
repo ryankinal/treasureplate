@@ -186,6 +186,10 @@ header nav .selected a::before {
 	content: '\00bb';
 }
 
+.social {
+	margin-bottom: 25px;
+}
+
 .social ul {
 	margin: 0;
 	padding: 0;
@@ -194,7 +198,7 @@ header nav .selected a::before {
 
 .social li {
 	display: inline-block;
-	margin: 8px 6px;
+	margin: 8px 6px 8px 6px;
 }
 
 .social a {
@@ -314,7 +318,7 @@ header nav .selected a::before {
 }
 
 .shows {
-	text-align: center;
+	
 }
 
 .shows .posters {
@@ -352,8 +356,130 @@ header nav .selected a::before {
 	overflow: hidden;
 }
 
-.show-date {
-	color: #BBB;
+.show p {
+	margin: 0 30px 4px 0;
+	white-space: nowrap;
+	float: left;
+}
+
+.no-shows p {
+	white-space: normal;
+	float: none;
+}
+
+.show-date,
+.show-location {
+	color: #CCC;
+}
+
+.show-location {
+
+}
+
+.slideshow {
+	position: relative;
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+.slideshow img {
+	height: 100%;
+}
+
+.slideshow img:hover {
+	border: solid #F6840A 2px;
+}
+
+.slide {
+	position: relative;
+	height: 200px;
+	max-width: 100%;
+	display: inline-block;
+}
+
+.video {
+	margin-bottom: 25px;
+}
+
+.video h2 {
+	text-align: left;
+}
+
+.video iframe {
+	float: left;
+	width: 100%;
+	max-width: 560px;
+	margin: 0 15px 15px 0;
+}
+
+.blanket, .lightbox {
+	transition: opacity .75s ease-in-out;
+	-webkit-transition: opacity .75s ease-in-out;
+	opacity: 0;
+	display: none;
+	position: fixed;
+}
+
+.blanket-show,
+.lightbox-show {
+	display: block;
+}
+
+.blanket-fade-in {
+	opacity: 0.8;
+}
+
+.lightbox-fade-in {
+	opacity: 1;
+}
+
+.blanket-fade-out,
+.lightbox-fade-out {
+	opacity: 0;
+}
+
+.blanket {
+	position: fixed;
+	background-color: #000;	
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 15;
+}
+
+.blanket.blanket-show {
+	display: block;
+}
+
+.lightbox.lightbox-show {
+	display: block;
+}
+
+.lightbox {
+	top: 50px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 500px;
+	max-width: 100%;
+	z-index: 16;
+	box-shadow: #333 0 0 250px 2px;
+	border: solid black 3px;
+}
+
+.lightbox img {
+	width: 100%;
+	display: block;
+}
+
+.lightbox-close {
+	position: absolute;
+	bottom: -18px;
+	right: 0;
+	font-size: 11px;
+	color: #FFF;
+	text-transform: uppercase;
+	cursor: pointer;
 }
 
 footer {

@@ -1,4 +1,32 @@
-@media screen and (max-device-width: 500px) {
+@media screen and (min-width: 501px) and (max-width: 1024px) {
+	.video,
+	.video *,
+	.video h2 {
+		text-align: center;
+	}
+
+	.video iframe {
+		float: none;
+	}
+
+	.shows {
+		text-align: center;
+	}
+
+	.lightbox {
+		top: 0;
+		height: 95%;
+	}
+
+	.lightbox-close {
+		right: 4px;
+	}
+
+	.slide {
+		height: 150px;
+	}
+}
+@media screen and (max-width: 500px) {
 	header .background {
 		background-size: cover;
 	}
@@ -39,9 +67,19 @@
 		letter-spacing: 10px;
 	}
 
+	.slideshow img {
+		width: 100%;
+		height: auto;
+	}
+
 	.media iframe {
 		width: 270px;
 		height: 202px;
+	}
+
+	.lightbox {
+		top: 50%;
+		transform: translate(-50%, -50%);
 	}
 
 	h2 {
