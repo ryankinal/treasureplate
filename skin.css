@@ -359,7 +359,6 @@ header nav .selected a::before {
 .show p {
 	margin: 0 30px 4px 0;
 	white-space: nowrap;
-	float: left;
 }
 
 .no-shows p {
