@@ -1,29 +1,11 @@
 @media screen and (min-width: 501px) and (max-width: 1024px) {
-	.video,
-	.video *,
-	.video h2 {
-		text-align: center;
-	}
-
-	.video iframe {
+	.slideshow {
+		max-width: 100%;
 		float: none;
 	}
 
-	.shows {
+	.hero h2 {
 		text-align: center;
-	}
-
-	.lightbox {
-		top: 0;
-		height: 95%;
-	}
-
-	.lightbox-close {
-		right: 4px;
-	}
-
-	.slide {
-		height: 150px;
 	}
 }
 @media screen and (max-width: 500px) {
@@ -63,7 +45,6 @@
 
 	h1 {
 		font-size: 33px;
-		margin-bottom: -28px;
 		letter-spacing: 10px;
 	}
 

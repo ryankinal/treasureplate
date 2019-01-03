@@ -19,6 +19,7 @@
 				<div class="background"></div>
 				<div class="lines"></div>
 				<h1>Treasure Plate</h1>
+				<p class="tag">"They were the best band of the Brokenstring String Music Festival this year and one of the best sets I've seen this year"<br> ~ Jerry Lyon, Starbrick Records ~</p>
 				<!--nav>
 					<ul>
 						<li class="selected"><a href="/">Home</a></li>
@@ -27,9 +28,35 @@
 					</ul>
 				</nav-->
 			</header>
-			<div class="limiter clearfix">
-				<article class="video clearfix">
-					<iframe id="stream" src="https://www.youtube.com/embed/R1rlVULePME" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			<div class="hero limiter clearfix">
+				<article class="clearfix">
+					<div class="slideshow" id="stream" data-simple-slider>
+						<div class="slide video" id="brokenStringVideo">
+							
+						</div>
+						<div class="slide">
+							<a href="#img01"><img src="images/brokenstring-2018/img-01.jpg"></a>
+						</div>
+						<!--<div class="slide">
+							<a href="#img02"><img src="images/brokenstring-2018/img-02.jpg"></a>
+						</div>-->
+						<div class="slide">
+							<a href="#img04"><img src="images/brokenstring-2018/img-04.jpg"></a>
+						</div>
+						<div class="slide">
+							<a href="#img06"><img src="images/brokenstring-2018/img-06.jpg"></a>
+						</div>
+						<!--<div class="slide">
+							<a href="#img08"><img src="images/brokenstring-2018/img-08.jpg"></a>
+						</div>
+						<div class="slide">
+							<a href="#img11"><img src="images/brokenstring-2018/img-11.jpg"></a>
+						</div>-->
+						<div class="slide">
+							<a href="#img14"><img src="images/brokenstring-2018/img-14.jpg"></a>
+						</div>
+					</div>
+					
 					<h2>See us</h2>
 					<div class="shows">
 						<!--<div class="show no-shows">
@@ -42,29 +69,6 @@
 							<p>w/<em>Kids in the Basement</em> and <em>Continental Drift (<a href="https://www.facebook.com/events/374140600011972/">Facebook</a>)</em></p>
 							<p class="show-location">Rochester, NY</p>
 						</div>
-					</div>
-				</article>
-				<article class="slideshow">
-					<div class="slide">
-						<a href="#img01" rel="lightbox"><img src="images/brokenstring-2018/img-01.jpg"></a>
-					</div>
-					<!--<div class="slide">
-						<a href="#img02" rel="lightbox"><img src="images/brokenstring-2018/img-02.jpg"></a>
-					</div>-->
-					<div class="slide">
-						<a href="#img04" rel="lightbox"><img src="images/brokenstring-2018/img-04.jpg"></a>
-					</div>
-					<div class="slide">
-						<a href="#img06" rel="lightbox"><img src="images/brokenstring-2018/img-06.jpg"></a>
-					</div>
-					<!--<div class="slide">
-						<a href="#img08" rel="lightbox"><img src="images/brokenstring-2018/img-08.jpg"></a>
-					</div>
-					<div class="slide">
-						<a href="#img11" rel="lightbox"><img src="images/brokenstring-2018/img-11.jpg"></a>
-					</div>-->
-					<div class="slide">
-						<a href="#img14" rel="lightbox"><img src="images/brokenstring-2018/img-14.jpg"></a>
 					</div>
 				</article>
 			</div>
@@ -99,17 +103,31 @@
 						<p>8/17/18 &mdash; Another Brokenstring Music Festival &mdash; Youngsville, PA</p>
 					</div>
 				</div>-->
-				<div class="social">
+				<article class="social">
 					<h2>Find us</h2>
 					<ul>
 						<li><a href="https://www.facebook.com/treasureplate/" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
 						<li><a href="https://www.instagram.com/treasureplate_band" class="instagram" title="Instagram" target="_blank">Instagram</a></li>
-						<!--<li><a href="https://soundcloud.com/ryan-kinal" class="soundcloud" title="Soundcloud" target="_blank">Soundcloud</a></li>-->
 						<li><a href="https://www.youtube.com/channel/UC7XiY1o7-CtGAN-KpGxieJw" class="youtube" title="YouTube" target="_blank">YouTube</a></li>
-						<!--li><a href="https://www.twitch.tv/ryankinalmusic" class="twitch">Twitch</a></li-->
 					</ul>
 					<p class="email">treasureplate@gmail.com</p>
-				</div>
+					<!--<p>
+						<a href="https://instawidget.net/v/user/treasureplate_band" id="link-07f7cc45749fbd927aac8938c3268a9052f8ea041d649add6da872431dd71fa3">@treasureplate_band</a>
+						<script src="https://instawidget.net/js/instawidget.js?u=07f7cc45749fbd927aac8938c3268a9052f8ea041d649add6da872431dd71fa3&width=300px"></script>
+					</p>-->
+				</article>
+			</div>
+
+			<div class="limiter">
+				<article class="past-shows">
+					<h2>Past Shows</h2>
+					<div class="poster">
+						<img src="images/brokenstring-2018.jpg" alt="Brokensting Music Festival 2018">
+					</div>
+					<div class="poster">
+						<img src="images/bus-garage-07-21-18.jpg" alt="Brokensting Music Festival 2018">
+					</div>
+				</article>
 			</div>
 		</div>
 		<div class="blanket" id="blanket"></div>
@@ -119,7 +137,42 @@
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/simple-slider/1.0.0/simpleslider.min.js"></script>
 		<script type="text/javascript">
-			//simpleslider.getSlider();
+			var slider;
+
+			function onYouTubeIframeAPIReady() {
+				new YT.Player('brokenStringVideo', {
+					videoId: 'R1rlVULePME',
+					events: {
+						'onStateChange': function(event) {
+							if (event.data === YT.PlayerState.PLAYING || event.data === YT.PlayerState.BUFFERING) {
+								slider.pause();
+							} else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+								setTimeout(function() {
+									slider.resume();
+								}, 500);
+							}
+						}
+					}
+				});
+
+				window.dispatchEvent(new Event('resize'));
+			}
+
+			(function() {
+				slider = simpleslider.getSlider({
+			      prop: 'left',
+			      init: -612,
+			      show: 1,
+			      end: 612,
+			      unit: 'px',
+			      delay: 4
+			    });
+
+			    var tag = document.createElement('script');
+				tag.src = "https://www.youtube.com/iframe_api";
+				var firstScriptTag = document.getElementsByTagName('script')[0];
+				firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+			})();
 		</script>
 
 		<!-- Global site tag (gtag.js) - Google Analytics -->
