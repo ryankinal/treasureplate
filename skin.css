@@ -114,7 +114,7 @@ a {
 	padding-top: 20px;
 	text-align: center;
 	padding-bottom: 20px;
-	background-color: rgba(255, 255, 255, 0.2);
+	background-color: rgba(255, 255, 255, 0.1);
 	margin-bottom: 40px;
 }
 
@@ -365,11 +365,27 @@ article {
 .show {
 	padding: 15px 20px;
 	overflow: hidden;
-	background-color: #333;
+	background-color: rgba(255, 255, 255, 0.1);
+	border: solid #F6840A;
+	border-width: 2px 0 0 0;
 }
 
 .show:nth-child(2n+1) {
-	background-color: #444;
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.show:last-child {
+	border-bottom-width: 2px;
+}
+
+.show-name {
+	color: #F6840A;
+}
+
+.show-date,
+.show-name {
+	font-size: 1.1em;
+	font-weight: bold;
 }
 
 .show-left {

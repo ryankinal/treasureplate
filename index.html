@@ -54,7 +54,7 @@
 						</div>-->
 						<div class="show">
 							<p class="show-date">1/18/19 - 8:00 PM</p>
-							<p>The Bug Jar</p>
+							<p class="show-name">The Bug Jar</p>
 							<p>w/<em>Kids in the Basement</em> and <em>Continental Drift (<a href="https://www.facebook.com/events/374140600011972/">Facebook</a>)</em></p>
 							<p class="show-location">Rochester, NY</p>
 						</div>
@@ -64,7 +64,7 @@
 
 			<article class="quotes">
 				<div class="limiter">
-					<p class="quote">"They were the best band of the Brokenstring String Music Festival this year and one of the best sets I've seen this year."</p>
+					<p class="quote">&laquo; They were the best band of the Brokenstring String Music Festival this year and one of the best sets I've seen this year. &raquo;</p>
 					<p class="attribution">~ Jerry Lyon, Starbrick Records ~</p>
 				</div>
 			</article>
@@ -99,10 +99,10 @@
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/simple-slider/1.0.0/simpleslider.min.js"></script>
 		<script type="text/javascript">
-			var slider;
+			var slider, player;
 
 			function onYouTubeIframeAPIReady() {
-				new YT.Player('brokenStringVideo', {
+				player = new YT.Player('brokenStringVideo', {
 					videoId: 'R1rlVULePME',
 					width: null,
 					height: null,
@@ -138,7 +138,11 @@
 						slider.pause();
 
 						setTimeout(function() {
-							slider.resume();
+							var playerState = player.getPlayerState();
+
+							if (playerState !== YT.PlayerState.PLAYING && playerState !== YT.PlayerState.BUFFERING) {
+								slider.resume();
+							}
 						}, 5000);
 					};
 				}
@@ -153,7 +157,12 @@
 					duration: .75,
 					onChange: function() {
 						var navElem = document.getElementById('slideshowNavIndex' + slider.currentIndex()),
-							prevElem = document.getElementById('slideshowNavIndex' + lastIndex);
+							prevElem = document.getElementById('slideshowNavIndex' + lastIndex),
+							playerState = player.getPlayerState();
+
+						if (playerState === YT.PlayerState.PLAYING || playerState === YT.PlayerState.BUFFERING) {
+							player.pauseVideo();
+						}
 
 						lastIndex = slider.currentIndex();
 
@@ -181,8 +190,18 @@
 					slider.prev();
 					slider.pause();
 
+					var playerState = player.getPlayerState();
+
+					if (playerState === YT.PlayerState.PLAYING || playerState === YT.PlayerState.BUFFERING) {
+						player.pauseVideo();
+					}
+
 					setTimeout(function() {
-						slider.resume();
+						var playerState = player.getPlayerState();
+
+						if (playerState !== YT.PlayerState.PLAYING && playerState !== YT.PlayerState.BUFFERING) {
+							slider.resume();
+						}
 					}, 4000);
 				};
 
@@ -190,10 +209,20 @@
 					slider.next();
 					slider.pause();
 
+					var playerState = player.getPlayerState();
+
+					if (playerState === YT.PlayerState.PLAYING || playerState === YT.PlayerState.BUFFERING) {
+						player.pauseVideo();
+					}
+
 					setTimeout(function() {
-						slider.resume();
+						var playerState = player.getPlayerState();
+
+						if (playerState !== YT.PlayerState.PLAYING && playerState !== YT.PlayerState.BUFFERING) {
+							slider.resume();
+						}
 					}, 4000);
-				};;
+				};
 
 			    var tag = document.createElement('script');
 				tag.src = "https://www.youtube.com/iframe_api";
