@@ -23,20 +23,27 @@
 			<div class="hero limiter clearfix">
 				<article class="clearfix">
 					<div class="slideshow" id="stream" data-simple-slider>
-						<div class="slide video" id="brokenStringVideo">
-							
+						<div class="slide">
+							<div class="video" id="brokenStringVideo"></div>
 						</div>
 						<div class="slide">
-							<a href="#img01"><img src="images/brokenstring-2018/img-01.jpg"></a>
-						</div>						<div class="slide">
-							<a href="#img04"><img src="images/brokenstring-2018/img-04.jpg"></a>
+							<img src="images/brokenstring-2018/img-01.jpg">
 						</div>
 						<div class="slide">
-							<a href="#img06"><img src="images/brokenstring-2018/img-06.jpg"></a>
+							<img src="images/brokenstring-2018/img-04.jpg">
 						</div>
 						<div class="slide">
-							<a href="#img14"><img src="images/brokenstring-2018/img-14.jpg"></a>
+							<img src="images/brokenstring-2018/img-06.jpg">
 						</div>
+						<div class="slide">
+							<img src="images/brokenstring-2018/img-14.jpg">
+						</div>
+					</div>
+
+					<div class="slideshow-nav">
+						<a class="prev glyphicon glyphicon-chevron-left" id="slideshow-prev"></a>
+						<span class="slides" id="slideshow-nav-index"></span>
+						<a class="next glyphicon glyphicon-chevron-right" id="slideshow-next"></a>
 					</div>
 					
 					<h2>See us</h2>
@@ -54,33 +61,16 @@
 					</div>
 				</article>
 			</div>
-			<div class="lightbox" id="img01">
-				<img src="images/brokenstring-2018/img-01.jpg">
-			</div>
-			<div class="lightbox" id="img02">
-				<img src="images/brokenstring-2018/img-02.jpg">
-			</div>
-			<div class="lightbox" id="img04">
-				<img src="images/brokenstring-2018/img-04.jpg">
-			</div>
-			<div class="lightbox" id="img06">
-				<img src="images/brokenstring-2018/img-06.jpg">
-			</div>
-			<div class="lightbox" id="img08">
-				<img src="images/brokenstring-2018/img-08.jpg">
-			</div>
-			<div class="lightbox" id="img11">
-				<img src="images/brokenstring-2018/img-11.jpg">
-			</div>
-			<div class="lightbox" id="img14">
-				<img src="images/brokenstring-2018/img-14.jpg">
-			</div>
+
+			<article class="quotes">
+				<div class="limiter">
+					<p class="quote">"They were the best band of the Brokenstring String Music Festival this year and one of the best sets I've seen this year."</p>
+					<p class="attribution">~ Jerry Lyon, Starbrick Records ~</p>
+				</div>
+			</article>
+
 			<div class="limiter">
-				<article class="tag">
-					<p class="tag">"They were the best band of the Brokenstring String Music Festival this year and one of the best sets I've seen this year"<br> ~ Jerry Lyon, Starbrick Records ~</p>
-				</article>
 				<article class="social">
-					<h2>Find us</h2>
 					<ul>
 						<li><a href="https://www.facebook.com/treasureplate/" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
 						<li><a href="https://www.instagram.com/treasureplate_band" class="instagram" title="Instagram" target="_blank">Instagram</a></li>
@@ -90,7 +80,7 @@
 				</article>
 			</div>
 
-			<div class="limiter">
+			<!--<div class="limiter">
 				<article class="past-shows">
 					<h2>Past Shows</h2>
 					<div class="poster">
@@ -100,7 +90,7 @@
 						<img src="images/bus-garage-07-21-18.jpg" alt="Brokensting Music Festival 2018">
 					</div>
 				</article>
-			</div>
+			</div>-->
 		</div>
 		<div class="blanket" id="blanket"></div>
 
@@ -114,6 +104,8 @@
 			function onYouTubeIframeAPIReady() {
 				new YT.Player('brokenStringVideo', {
 					videoId: 'R1rlVULePME',
+					width: null,
+					height: null,
 					events: {
 						'onStateChange': function(event) {
 							if (event.data === YT.PlayerState.PLAYING || event.data === YT.PlayerState.BUFFERING) {
@@ -131,15 +123,77 @@
 			}
 
 			(function() {
+				var i, nav, link, prev, next, container, lastIndex;
+
+				lastIndex = 0;
+
+				nav = document.getElementById('slideshow-nav-index');
+				prev = document.getElementById('slideshow-prev');
+				next = document.getElementById('slideshow-next');
+				container = document.getElementById('stream');
+
+				var createIndexNavFunction = function(i) {
+					return function() {
+						slider.change(i);
+						slider.pause();
+
+						setTimeout(function() {
+							slider.resume();
+						}, 5000);
+					};
+				}
+
 				slider = simpleslider.getSlider({
-			      prop: 'left',
-			      init: -612,
-			      show: 1,
-			      end: 612,
-			      unit: 'px',
-			      delay: 4,
-			      duration: .75
+					container: container,
+					prop: "left",
+					init: 100,
+					show: 0,
+					end: -100,
+					delay: 4,
+					duration: .75,
+					onChange: function() {
+						var navElem = document.getElementById('slideshowNavIndex' + slider.currentIndex()),
+							prevElem = document.getElementById('slideshowNavIndex' + lastIndex);
+
+						lastIndex = slider.currentIndex();
+
+						navElem.className = 'selected';
+						prevElem.className = '';
+					}
 			    });
+
+				for (i = 0; i < container.children.length; i++)
+				{
+					link = document.createElement('a');
+					link.appendChild(document.createTextNode(i + 1));
+					link.onclick = createIndexNavFunction(i);
+					link.id = 'slideshowNavIndex' + i;
+
+					if (i === 0)
+					{
+						link.className = 'selected';
+					}
+
+					nav.appendChild(link);
+				}
+
+				prev.onclick = function() {
+					slider.prev();
+					slider.pause();
+
+					setTimeout(function() {
+						slider.resume();
+					}, 4000);
+				};
+
+				next.onclick = function() {
+					slider.next();
+					slider.pause();
+
+					setTimeout(function() {
+						slider.resume();
+					}, 4000);
+				};;
 
 			    var tag = document.createElement('script');
 				tag.src = "https://www.youtube.com/iframe_api";
