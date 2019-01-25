@@ -77,7 +77,7 @@ h1 {
 	font-size: 50px;
 	letter-spacing: 17px;
 	margin: 0;
-	padding-bottom: 40px;
+	padding-bottom: 0px;
 	background: linear-gradient(#2F1C05, transparent);
 	font-family: Audiowide;
 }
@@ -108,6 +108,14 @@ p:last-child {
 
 a {
 	color: #86C28B;
+}
+
+.tagline {
+	/*font-family: Audiowide;*/
+	text-align: center;
+	padding-bottom: 40px;
+	font-size: 16px;
+	letter-spacing: 1px;
 }
 
 .quotes {
