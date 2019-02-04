@@ -124,6 +124,7 @@ a {
 	padding-bottom: 20px;
 	background-color: rgba(255, 255, 255, 0.1);
 	margin-bottom: 40px;
+	box-shadow: 0 3px 12px #111;
 }
 
 .quote {
@@ -229,6 +230,7 @@ article {
 .social li {
 	display: inline-block;
 	margin: 8px 6px 8px 6px;
+	box-shadow: 0 5px 20px #111;
 }
 
 .social a {
@@ -352,7 +354,9 @@ article {
 }
 
 .shows {
-	
+	overflow: hidden;
+	box-shadow: 0 5px 20px #111;
+	margin-right: 20px;
 }
 
 .shows .posters {
@@ -453,6 +457,7 @@ article {
 	max-width: 586px;
 	height: 300px;
 	float: left;
+	box-shadow: 0 5px 20px #111;
 }
 
 .slideshow-nav {
@@ -580,4 +585,32 @@ footer {
 
 footer a {
 	color: #4A4857;
+}
+
+.crew-member {
+	padding: 0 10px;
+}
+
+.crew-member:first-child {
+	padding-left: 0;
+}
+
+.crew-membmer:last-child {
+	padding-right: 0;
+}
+
+.crew-photo {
+	width: 80%;
+	margin: 0 auto 15px;
+	box-shadow: 0 5px 20px 0 #111;
+
+}
+
+.crew-photo img {
+	width: 100%;
+	display: block;
+}
+
+.bio-subtitle {
+	text-align: center;
 }

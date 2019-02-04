@@ -1,3 +1,25 @@
+@media screen and (max-width: 1024px)
+{
+	.shows {
+		margin-left: 20px;
+	}
+
+	.slideshow {
+		width: 90%;
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+
+	.slideshow-nav {
+		clear: both;
+		max-width: 100%;
+	}
+
+	.hero h2 {
+		clear: both;
+	}
+}
+
 @media screen and (min-width: 501px) and (max-width: 1024px) {
 	.slideshow {
 		max-width: 100%;
@@ -66,5 +88,10 @@
 
 	h2, .hero h2 {
 		text-align: center;
+	}
+
+	.crew-member {
+		width: 50%;
+		margin-bottom: 25px;
 	}
 }
