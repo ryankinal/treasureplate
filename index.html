@@ -25,6 +25,9 @@
 				<article class="clearfix">
 					<div class="slideshow" id="stream" data-simple-slider>
 						<div class="slide">
+							<div class="video" id="dadFestVideo"></div>
+						</div>
+						<div class="slide">
 							<div class="video" id="brokenStringVideo"></div>
 						</div>
 						<div class="slide">
@@ -143,10 +146,10 @@
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/simple-slider/1.0.0/simpleslider.min.js"></script>
 		<script type="text/javascript">
-			var slider, player;
+			var slider, players = [];
 
 			function onYouTubeIframeAPIReady() {
-				player = new YT.Player('brokenStringVideo', {
+				players.push(new YT.Player('brokenStringVideo', {
 					videoId: 'R1rlVULePME',
 					width: null,
 					height: null,
@@ -161,7 +164,24 @@
 							}
 						}
 					}
-				});
+				}));
+
+				players.push(new YT.Player('dadFestVideo', {
+					videoId: 'FRBrcn2lyP8',
+					width: null,
+					height: null,
+					events: {
+						'onStateChange': function(event, other) {
+							if (event.data === YT.PlayerState.PLAYING || event.data === YT.PlayerState.BUFFERING) {
+								slider.pause();
+							} else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+								setTimeout(function() {
+									slider.resume();
+								}, 500);
+							}
+						}
+					}
+				}));
 
 				window.dispatchEvent(new Event('resize'));
 			}
@@ -201,12 +221,9 @@
 					duration: .75,
 					onChange: function() {
 						var navElem = document.getElementById('slideshowNavIndex' + slider.currentIndex()),
-							prevElem = document.getElementById('slideshowNavIndex' + lastIndex),
-							playerState = player.getPlayerState();
+							prevElem = document.getElementById('slideshowNavIndex' + lastIndex);
 
-						if (playerState === YT.PlayerState.PLAYING || playerState === YT.PlayerState.BUFFERING) {
-							player.pauseVideo();
-						}
+						pauseAllPlayers();
 
 						lastIndex = slider.currentIndex();
 
@@ -230,15 +247,22 @@
 					nav.appendChild(link);
 				}
 
+				var pauseAllPlayers = function() {
+					var i, state;
+					for (i = 0; i < players.length; i++) {
+						playerState = players[i].getPlayerState();
+
+						if (playerState === YT.PlayerState.PLAYING || playerState === YT.PlayerState.BUFFERING) {
+							players[i].pauseVideo();
+						}
+					}
+				};
+
 				prev.onclick = function() {
 					slider.prev();
 					slider.pause();
 
-					var playerState = player.getPlayerState();
-
-					if (playerState === YT.PlayerState.PLAYING || playerState === YT.PlayerState.BUFFERING) {
-						player.pauseVideo();
-					}
+					pauseAllPlayers();
 
 					setTimeout(function() {
 						var playerState = player.getPlayerState();
@@ -253,11 +277,7 @@
 					slider.next();
 					slider.pause();
 
-					var playerState = player.getPlayerState();
-
-					if (playerState === YT.PlayerState.PLAYING || playerState === YT.PlayerState.BUFFERING) {
-						player.pauseVideo();
-					}
+					pauseAllPlayers();
 
 					setTimeout(function() {
 						var playerState = player.getPlayerState();
