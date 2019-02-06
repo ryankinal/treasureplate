@@ -394,6 +394,10 @@ article {
 	color: #F6840A;
 }
 
+.show-name a {
+	color: #F6840A;
+}
+
 .show-date,
 .show-name {
 	font-size: 1.1em;
