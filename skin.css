@@ -229,35 +229,34 @@ article {
 
 .social li {
 	display: inline-block;
-	margin: 8px 6px 8px 6px;
-	box-shadow: 0 5px 20px #111;
+	margin: 8px 0 3px;
 }
 
 .social a {
 	display: block;
 	text-indent: -9999px;
 	width: 75px;
-	height: 74px;
+	height: 75px;
 	background-color: transparent;
-	background-image: url(images/flatIconSet.jpg);
 	background-repeat: no-repeat;
+	background-size: contain;
 	border-radius: 7px;
 }
 
 .social .facebook {
-	background-position: -457px -169px;
+	background-image: url(images/facebook.png);
 }
 
 .social .instagram {
-	background-position: -269px -169px;
+	background-image: url(images/instagram.png);
 }
 
 .social .soundcloud {
-	background-position: -647px -75px;
+	background-image: url(images/soundcloud.png);
 }
 
 .social .youtube {
-	background-position: -81px -75px;
+	background-image: url(images/youtube.png);
 }
 
 .info {
@@ -458,7 +457,7 @@ article {
 	margin-bottom: 12px;
 	margin-right: 25px;
 	width: 100%;
-	max-width: 586px;
+	max-width: 736px;
 	height: 300px;
 	float: left;
 	box-shadow: 0 5px 20px #111;
@@ -469,7 +468,7 @@ article {
 	clear: left;
 	text-align: center;
 	width: 100%;
-	max-width: 586px;
+	max-width: 736px;
 	margin-bottom: 25px;
 }
 

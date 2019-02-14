@@ -94,4 +94,8 @@
 		width: 50%;
 		margin-bottom: 25px;
 	}
+
+	.social a {
+		width: 60px;
+	}
 }
