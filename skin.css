@@ -139,9 +139,17 @@ blockquote {
 	box-shadow: 0 3px 12px #111;
 }
 
+.quoteSlider {
+	position: relative;
+}
+
 .quote {
 	font-size: 1.1em;
 	font-weight: bold;
+}
+
+#quoteSlider > div {
+	width: 100%;
 }
 
 .attribution {
@@ -620,7 +628,6 @@ footer a {
 	width: 60%;
 	margin: 0 auto 15px;
 	box-shadow: 0 5px 20px 0 #111;
-
 }
 
 .crew-photo img {

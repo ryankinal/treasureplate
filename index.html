@@ -205,9 +205,15 @@
 			</div>
 
 			<article class="quotes">
-				<div class="limiter">
-					<p class="quote">&laquo; They were the best band of the Brokenstring Music Festival [2018] and one of the best sets I've seen [2018]. &raquo;</p>
-					<p class="attribution">~ Jerry Lyon, Starbrick Records ~</p>
+				<div class="limiter" id="quoteSlider" data-simple-slider>
+					<div>
+						<p class="quote">&laquo; Treasure Plate is an intergalactic stage act from beyond the stars like no other, combining classic psych rock and horror sci-fi theatre in an (Enginecore) phenomenal way. &raquo;</p>
+						<p class="attribution">~ Skyler Smith, Rasputin Media ~</p>
+					</div>
+					<div>
+						<p class="quote">&laquo; They were the best band of the Brokenstring Music Festival [2018] and one of the best sets I've seen in [2018]. &raquo;</p>
+						<p class="attribution">~ Jerry Lyon, Starbrick Records ~</p>
+					</div>
 				</div>
 			</article>
 
@@ -437,6 +443,37 @@
 
 				detailClose.addEventListener('click', closeAll);
 				detailContainer.addEventListener('click', closeAll);
+			})();
+
+			(function() {
+				var container = document.getElementById('quoteSlider'),
+					slides = container.children,
+					slider,
+					changeSliderHeight = function() {
+						var i, max = 0;
+						for (i = 0; i < slides.length; i++)
+						{
+							if (slides[i].offsetHeight > max) {
+								max = slides[i].offsetHeight;	
+							}
+						}
+
+						container.style.height = max + 'px';
+					};
+
+					changeSliderHeight();
+
+					slider = simpleslider.getSlider({
+						container: container,
+						prop: "left",
+						init: 100,
+						show: 0,
+						end: -100,
+						delay: 6,
+						duration: 1.25
+				    });
+
+				    window.addEventListener('resize', changeSliderHeight);
 			})();
 		</script>
 

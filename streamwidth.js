@@ -4,9 +4,9 @@
 		document.querySelector('#stream').style.height = ((stream.offsetWidth * 9) / 16) + 'px';
 		stream.style.height = ((stream.offsetWidth * 9) / 16) + 'px';
 
-		window.onresize = function() {
+		window.addEventListener('resize', function() {
 			document.querySelector('#stream').style.height = ((stream.offsetWidth * 9) / 16) + 40 + 'px';
 			stream.style.height = ((stream.offsetWidth * 9) / 16) + 'px';
-		}
+		});
 	}
 })();
