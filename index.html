@@ -278,7 +278,7 @@
 							} else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
 								setTimeout(function() {
 									slider.resume();
-								}, 500);
+								}, 1000);
 							}
 						}
 					}
@@ -295,7 +295,7 @@
 							} else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
 								setTimeout(function() {
 									slider.resume();
-								}, 500);
+								}, 1000);
 							}
 						}
 					}
@@ -384,6 +384,23 @@
 					slider.pause();
 
 					pauseAllPlayers();
+
+					setTimeout(function() {
+						var playing = false,
+							i;
+
+						for (i = 0; i < players.length; i++)
+						{
+							if (playerState === YT.PlayerState.PLAYING || playerState === YT.PlayerState.BUFFERING) {
+								playing = true;
+							}	
+						}
+						
+						if (!playing)
+						{
+							slider.resume();
+						}
+					}, 6000);
 				};
 
 				next.onclick = function() {
@@ -391,6 +408,23 @@
 					slider.pause();
 
 					pauseAllPlayers();
+
+					setTimeout(function() {
+						var playing = false,
+							i;
+
+						for (i = 0; i < players.length; i++)
+						{
+							if (playerState === YT.PlayerState.PLAYING || playerState === YT.PlayerState.BUFFERING) {
+								playing = true;
+							}	
+						}
+						
+						if (!playing)
+						{
+							slider.resume();
+						}
+					}, 6000);
 				};
 
 			    var tag = document.createElement('script');
