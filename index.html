@@ -100,7 +100,7 @@
 					</div>
 					<div class="slide">
 						<div class="media">
-							<img src="images/brokenstring-2018/img-04.jpg">
+							<img src="images/brokenstring-2019/poster-art.jpg">
 						</div>
 						<div class="description">
 							<h2>Another Brokenstring Music Festival</h2>
@@ -320,12 +320,21 @@
 						slider.pause();
 
 						setTimeout(function() {
-							var playerState = player.getPlayerState();
+							var playing = false,
+								i;
 
-							if (playerState !== YT.PlayerState.PLAYING && playerState !== YT.PlayerState.BUFFERING) {
+							for (i = 0; i < players.length; i++)
+							{
+								if (playerState === YT.PlayerState.PLAYING || playerState === YT.PlayerState.BUFFERING) {
+									playing = true;
+								}	
+							}
+							
+							if (!playing)
+							{
 								slider.resume();
 							}
-						}, 5000);
+						}, 10000);
 					};
 				}
 
@@ -335,7 +344,7 @@
 					init: 100,
 					show: 0,
 					end: -100,
-					delay: 6,
+					delay: 8,
 					duration: 1.25,
 					onChange: function() {
 						var navElem = document.getElementById('slideshowNavIndex' + slider.currentIndex()),
@@ -400,7 +409,7 @@
 						{
 							slider.resume();
 						}
-					}, 6000);
+					}, 10000);
 				};
 
 				next.onclick = function() {
@@ -424,7 +433,7 @@
 						{
 							slider.resume();
 						}
-					}, 6000);
+					}, 10000);
 				};
 
 			    var tag = document.createElement('script');
