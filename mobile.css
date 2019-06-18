@@ -16,6 +16,15 @@
 		background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6), transparent);
 	}
 
+	.see-us .limiter > .half {
+		width: 100%;
+		float: none;
+	}
+
+	.crew {
+		margin-top: 25px;
+	}
+
 	.slide .description > * {
 		display: none;
 	}
@@ -169,9 +178,8 @@
 		text-align: center;
 	}
 
-	.crew-member {
-		width: 50%;
-		margin-bottom: 25px;
+	.crew-photo {
+		width: 80%;
 	}
 
 	.social a {

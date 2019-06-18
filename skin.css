@@ -613,18 +613,11 @@ footer a {
 
 .crew-member {
 	padding: 0 10px;
-}
-
-.crew-member:first-child {
-	padding-left: 0;
-}
-
-.crew-membmer:last-child {
-	padding-right: 0;
+	margin-bottom: 35px;
 }
 
 .crew-photo {
-	width: 80%;
+	width: 60%;
 	margin: 0 auto 15px;
 	box-shadow: 0 5px 20px 0 #111;
 
