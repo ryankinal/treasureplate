@@ -1,10 +1,11 @@
 (function() {
-	var stream = document.getElementById('stream');
-
+	var stream = document.querySelector('#stream .slide .media');
 	if (stream) {
+		document.querySelector('#stream').style.height = ((stream.offsetWidth * 9) / 16) + 'px';
 		stream.style.height = ((stream.offsetWidth * 9) / 16) + 'px';
 
 		window.onresize = function() {
+			document.querySelector('#stream').style.height = ((stream.offsetWidth * 9) / 16) + 40 + 'px';
 			stream.style.height = ((stream.offsetWidth * 9) / 16) + 'px';
 		}
 	}

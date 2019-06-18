@@ -1,13 +1,41 @@
 @media screen and (max-width: 1024px)
 {
-	.shows {
-		margin-left: 20px;
-	}
-
 	.slideshow {
 		width: 90%;
 		margin-left: 5%;
 		margin-right: 5%;
+		height: 450px;
+	}
+
+	.slide .description {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		height: auto;
+		padding: 10px;
+		background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6), transparent);
+	}
+
+	.slide .description > * {
+		display: none;
+	}
+
+	.slide .description h2 {
+		display: block;
+		text-align: right;
+		font-size: 1.2em;
+		margin-bottom: 5px;
+	}
+
+	.slide a[rel="details"] {
+		display: block;
+		text-align: right;
+	}
+
+	.slide .media,
+	.slide .description {
+		width: 100%;
+		float: none;
 	}
 
 	.slideshow-nav {
@@ -19,6 +47,57 @@
 	.hero h2 {
 		clear: both;
 	}
+
+	#details {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		transition: opacity .75s ease-in-out;
+		-webkit-transition: opacity .75s ease-in-out;
+		opacity: 0;
+		display: none;
+		background-color: rgba(0, 0, 0, 0.8);
+		z-index: 25;
+	}
+
+	.detail-popup {
+		display: none;
+	}
+
+	.detail-popup.selected {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 80%;
+		margin: 10%;
+		margin-top: 250px;
+		background-color: #696969;
+		padding: 25px;
+	}
+
+	#detail-close {
+		position: fixed;
+		top: 10px;
+		right: 10px;
+		background-color: #F6840A;
+		border-radius: 10px;
+		height: 20px;
+		width: 20px;
+		font-size: 0.8em;
+		font-weight: bold;
+		text-align: center;
+		z-index: 26;
+		padding-top: 2px;
+	}
+
+	#detail-close::after {
+		content: 'X';
+	}
 }
 
 @media screen and (min-width: 501px) and (max-width: 1024px) {
@@ -29,6 +108,10 @@
 
 	.hero h2 {
 		text-align: center;
+	}
+
+	.detail-popup.selected {
+		margin-top: 50px;
 	}
 }
 @media screen and (max-width: 500px) {
@@ -77,11 +160,6 @@
 		height: auto;
 	}
 
-	.media iframe {
-		width: 270px;
-		height: 202px;
-	}
-
 	.lightbox {
 		top: 50%;
 		transform: translate(-50%, -50%);
@@ -98,5 +176,9 @@
 
 	.social a {
 		width: 60px;
+	}
+
+	.detail-popup.selected {
+		margin-top: 50px;
 	}
 }
