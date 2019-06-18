@@ -121,6 +121,11 @@ blockquote {
 	margin-right: 0;
 }
 
+blockquote b,
+blockquote i {
+	color: #BBB;
+}
+
 .tagline {
 	/*font-family: Audiowide;*/
 	text-align: center;
