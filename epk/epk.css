@@ -10,13 +10,18 @@ blockquote {
 	border: none;
 }
 
+.image {
+	width: 80%;
+	margin: 0 auto;
+}
+
 .bio > p {
 	text-align: justify;
 	clear: both;
 }
 
 .limiter {
-	width: 80%;
+	width: 70%;
 	max-width: 800px;
 	margin: 0 auto;
 	padding: 50px 0;
@@ -44,6 +49,10 @@ blockquote {
 
 .album ol {
 	padding-left: 25px;
+}
+
+.contact-info {
+	text-align: center;
 }
 
 img {
