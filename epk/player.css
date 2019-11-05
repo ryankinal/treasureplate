@@ -1,0 +1,56 @@
+.audio-controls,
+.audio-controls > * {
+	box-sizing: border-box;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.audio-controls {
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	padding: 0 10px;
+	line-height: 20px;
+	margin: 7px 0 10px;
+}
+
+.audio-controls button {
+	padding: 0;
+	border: none;
+	width: 20px;
+	height: 20px;
+	background-color: #999;
+	color: black;
+	margin: 5px 10px 5px 0;
+	text-align: center;
+	outline: none;
+}
+
+.audio-controls .glyphicon {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	top: 1px;
+}
+
+.audio-progress {
+	margin: 10px 0;
+	height: 10px;
+	background-color: #666;
+	width: calc(100% - 35px);
+}
+
+.audio-progress-indicator {
+	height: 100%;
+	width: 0;
+	background-color: #F6840A;
+}
+
+@media screen and (max-width: 500px) {
+	.audio-controls {
+		margin-left: -13px;
+	}
+
+	.audio-controls .glyphicon {
+		top: 0;
+	}
+}
