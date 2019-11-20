@@ -476,6 +476,10 @@ article {
 	transform: translateY(-50%);
 }
 
+.instagram {
+	margin-top: 55px;
+}
+
 .slideshow {
 	position: relative;
 	text-align: center;
