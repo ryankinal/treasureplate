@@ -509,6 +509,7 @@ article {
 	width: 100%;
 	height: 100%;
 	text-align: center;
+	overflow: hidden;
 }
 
 .slide .media,
@@ -530,6 +531,16 @@ article {
 .slide img
 {
 	width: 100%;
+}
+
+#albumAnnouncement img {
+	position: relative;
+	top: -135px;
+}
+
+#hearingAideReview .media,
+#cityReview .media {
+	background-color: #FFF;
 }
 
 .video {

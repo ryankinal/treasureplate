@@ -53,6 +53,11 @@
 		width: 100%;
 	}
 
+	#albumAnnouncement img {
+		position: relative;
+		top: -85px;
+	}
+
 	.hero h2 {
 		clear: both;
 	}
