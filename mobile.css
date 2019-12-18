@@ -58,6 +58,11 @@
 		top: -85px;
 	}
 
+	#cityReview img {
+		position: relative;
+		top: 0;
+	}
+
 	.hero h2 {
 		clear: both;
 	}

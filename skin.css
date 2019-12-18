@@ -543,6 +543,11 @@ article {
 	background-color: #FFF;
 }
 
+#cityReview img {
+	position: relative;
+	top: 50px;
+}
+
 .video {
 	width: 100%;
 	height: 100%;
